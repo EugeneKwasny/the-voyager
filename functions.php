@@ -20,9 +20,9 @@ function thevoyager_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Voyager, use a find and replace
-	 * to change 'thevoyager' to the name of your theme in all the template files.
+	 * to change 'the-voyager' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'thevoyager', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'the-voyager', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -45,9 +45,9 @@ function thevoyager_setup() {
 	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary-left' => esc_html__( 'Primary Left', 'thevoyager' ),
-		'primary-right' => esc_html__( 'Primary Right', 'thevoyager' ),
-		'mobile' => esc_html__( 'Mobile', 'thevoyager' ),
+		'primary-left' => esc_html__( 'Primary Left', 'the-voyager' ),
+		'primary-right' => esc_html__( 'Primary Right', 'the-voyager' ),
+		'mobile' => esc_html__( 'Mobile', 'the-voyager' ),
 	) );
 
 	/*
@@ -102,9 +102,9 @@ add_action( 'after_setup_theme', 'thevoyager_content_width', 0 );
  */
 function thevoyager_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'thevoyager' ),
+		'name'          => esc_html__( 'Sidebar', 'the-voyager' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'thevoyager' ),
+		'description'   => esc_html__( 'Add widgets here.', 'the-voyager' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget-title">',

@@ -15,9 +15,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info row">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'thevoyager' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'thevoyager' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-voyager' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'the-voyager' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'thevoyager' ), 'The Voyager', esc_html__( 'Codeians', 'thevoyager' ) ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'the-voyager' ), 'The Voyager', esc_html__( 'Codeians', 'the-voyager' ) ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

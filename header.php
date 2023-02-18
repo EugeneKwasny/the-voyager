@@ -33,7 +33,7 @@
 					}
 					else 
 						if (current_user_can( 'administrator' )){
-							echo '<ul class="no-menu"><li><a href="' . esc_url( admin_url('/') ) . 'nav-menus.php">' . esc_html__('Go to "Appearance - Menus" to set-up menu', 'thevoyager') . '</a></li></ul>';	
+							echo '<ul class="no-menu"><li><a href="' . esc_url( admin_url('/') ) . 'nav-menus.php">' . esc_html__('Go to "Appearance - Menus" to set-up menu', 'the-voyager') . '</a></li></ul>';	
 						}
 					?>
 					</div>
@@ -54,7 +54,7 @@
 					}
 					else 
 						if (current_user_can( 'administrator' )){
-							echo '<ul class="no-menu"><li><a href="' . esc_url( admin_url('/') ) . 'nav-menus.php">' . esc_html__('Go to "Appearance - Menus" to set-up menu', 'thevoyager') . '</a></li></ul>';	
+							echo '<ul class="no-menu"><li><a href="' . esc_url( admin_url('/') ) . 'nav-menus.php">' . esc_html__('Go to "Appearance - Menus" to set-up menu', 'the-voyager') . '</a></li></ul>';	
 						}
 					?>
 					</div>					
@@ -73,7 +73,7 @@
 					}
 					else 
 						if (current_user_can( 'administrator' )){
-							echo '<ul class="no-menu"><li><a href="' . esc_url( admin_url('/') ) . 'nav-menus.php">' . esc_html__('Go to "Appearance - Menus" to set-up menu', 'thevoyager') . '</a></li></ul>';	
+							echo '<ul class="no-menu"><li><a href="' . esc_url( admin_url('/') ) . 'nav-menus.php">' . esc_html__('Go to "Appearance - Menus" to set-up menu', 'the-voyager') . '</a></li></ul>';	
 						}
 					?>
 				</nav>
