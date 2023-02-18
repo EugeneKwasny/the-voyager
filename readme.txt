@@ -42,7 +42,3 @@ Source: https://github.com/Team-Sass/modular-scale/
 Modernizr, Copyright (c) 2016 Faruk, Paul, Alex, Ryan, Patrick, Stu, and Richard
 Modernizr licensed under MIT Open Source License. (http://opensource.org/licenses/MIT)
 Source: http://modernizr.com/
-
-Photo used in screenshot.png, Copyright (c) 2016 Dariusz Sankowski (https://unsplash.com/@dariuszsankowski)
-Photo licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
-Source: https://unsplash.com/@dariuszsankowski?photo=3OiYMgDKJ6k
