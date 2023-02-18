@@ -17,7 +17,7 @@
 		<div class="site-info row">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'thevoyager' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'thevoyager' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'thevoyager' ), 'The Voyager', '<a href="'.esc_url( __( 'https://awothemes.pro/', 'thevoyager' ) ).'" rel="nofollow designer">'.esc_html__( 'AwoThemes', 'thevoyager' ).'</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'thevoyager' ), 'The Voyager', esc_html__( 'Codeians', 'thevoyager' ) ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
