@@ -153,6 +153,8 @@ function thevoyager_scripts() {
 
 	wp_enqueue_style( 'gumby', get_template_directory_uri() . '/css/gumby.css', array(), '20151215', false );
 	
+	wp_enqueue_style( 'tailwind-styles', get_template_directory_uri() . '/dist/styles.css', array(), '20151215', false );
+
 	wp_enqueue_style( 'thevoyager-fonts', thevoyager_fonts_url(), array(), null);  
 	
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr.js', array('jquery' ), '20151215', false );
