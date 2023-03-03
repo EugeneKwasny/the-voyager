@@ -11,7 +11,8 @@
 
 ?>
 
-	</div><!-- #content -->
+		</div><!-- #content -->
+	</div><!-- #page -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info row">
@@ -20,7 +21,6 @@
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'the-voyager' ), 'The Voyager', esc_html__( 'Codeians', 'the-voyager' ) ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

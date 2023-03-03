@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+
 	<header id="masthead" class="site-header" style="background-image:url('<?php header_image(); ?>')">
 
 			<div class="navbar-horizontal">
@@ -79,3 +79,4 @@
 					?>
 				</nav>
 	</header><!-- #masthead -->
+	<div id="page" class="site">
