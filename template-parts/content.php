@@ -22,14 +22,14 @@
 			}
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry-meta  mt-4 flex gap-4">
 			<?php thevoyager_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content mt-4">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
@@ -44,7 +44,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer mt-4  flex gap-4">
 		<?php thevoyager_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

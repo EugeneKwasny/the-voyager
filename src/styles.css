@@ -6,20 +6,53 @@
 @layer base {
     h1 {
         @apply text-4xl;
+        @apply mb-4;
     }
     h2 {
         @apply text-3xl;
+        @apply mb-4;
     }
     h3 {
         @apply text-2xl;
+        @apply mb-4;
     }
     h4 {
         @apply text-xl;
+        @apply mb-4;
     }
     h5 {
         @apply text-lg;
+        @apply mb-4;
     }
     h6 {
         @apply text-base;
+        @apply mb-4;
+    }
+    table{
+        @apply mb-4;
+    }
+    ol, ul, dl {
+        @apply mb-4;
+    }
+    li {
+        @apply mb-2;
+    }
+    p {
+        @apply mb-4;
+    }
+    address {
+        @apply mb-4;
+    }
+    figure {
+        @apply mb-4;
+    }
+    a:hover{
+        @apply text-blue-600;
+    }
+    dl dt {
+        @apply font-bold;
+    }
+    dl dd {
+        @apply pl-4;
     }
   }

@@ -50,7 +50,7 @@
 						'theme_location' => 'primary-left', 
 						'container'=>'',  
 						'link_after' => '<svg class="inline-flex ml-2.5 self-center" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="fill-color-textDark lg:fill-white lg:hover:fill-bg-2/100" d="M4.58745 5.33885L8.37478 1.55145C8.46245 1.46386 8.51074 1.34692 8.51074 1.22224C8.51074 1.09755 8.46245 0.980615 8.37478 0.893017L8.09593 0.614102C7.91423 0.432609 7.61892 0.432609 7.4375 0.614102L4.25712 3.79447L1.07322 0.610573C0.985558 0.522975 0.868691 0.474609 0.744075 0.474609C0.619321 0.474609 0.502454 0.522975 0.414718 0.610573L0.135941 0.889488C0.0482735 0.977155 -2.26901e-05 1.09402 -2.26955e-05 1.21871C-2.2701e-05 1.34339 0.0482735 1.46033 0.135941 1.54793L3.92673 5.33885C4.01467 5.42666 4.13209 5.47489 4.25692 5.47461C4.38222 5.47489 4.49957 5.42666 4.58745 5.33885Z" fill="white"/></svg>',
-						'items_wrap' => '<ul id="%1$s" class="flex flex-col lg:flex-row">%3$s</ul>'
+						'items_wrap' => '<ul id="%1$s" class="flex flex-col lg:flex-row mb-0">%3$s</ul>'
 					]);
 				?>
 			</nav>
@@ -59,4 +59,4 @@
 	                                                
 	
 	<!-- #masthead -->
-	<div id="page" class="site">
+	<div id="page" class="site container mx-auto max-w-7xl px-5 mt-[90px]">

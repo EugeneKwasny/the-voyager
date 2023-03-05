@@ -9,12 +9,12 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content row">
+<div id="content" class="site-content flex flex-col md:flex-row gap-x-16">
 
-	<section id="primary" class="content-area nine columns">
+	<div id="primary" class="content-area w-full md:w-3/4">
 
 		
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main grid grid-flow-row auto-rows-max gap-9" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -45,7 +45,7 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div><!-- #primary -->
 
 <?php
 get_sidebar();

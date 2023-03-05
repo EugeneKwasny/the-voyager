@@ -1,4 +1,5 @@
 const mainNavToggle = (e)=>{
+	console.log(e.target);
 	document.getElementById('main-nav').classList.toggle('!block');
 }
 

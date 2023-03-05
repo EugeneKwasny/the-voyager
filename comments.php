@@ -20,12 +20,12 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area mt-6">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+		<h4 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
 					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'the-voyager' ) ),
@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 					'<span>' . get_the_title() . '</span>'
 				);
 			?>
-		</h2>
+		</h4>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
@@ -47,9 +47,10 @@ if ( post_password_required() ) {
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
 
-		<ol class="comment-list">
+		<ol class="comment-list mt-6">
 			<?php
 				wp_list_comments( array(
+					'callback'     => 'voyager_comment',
 					'style'      => 'ol',
 					'short_ping' => true,
 				) );
@@ -79,7 +80,7 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	comment_form(['submit_field'=> '<p class="form-submit">%1$s %2$s</p>', 'class_container' => 'comment-respond mt-6', 'class_submit' => 'bg-bg-1 text-white p-3 cursor-pointer hover:bg-bg-1/90 rounded']);
 	?>
 
 </div><!-- #comments -->

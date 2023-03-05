@@ -12,6 +12,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area three columns" role="complementary">
+<aside id="secondary" class="widget-area grid grid-flow-row auto-rows-max gap-7 w-full md:w-1/4" role="complementary">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

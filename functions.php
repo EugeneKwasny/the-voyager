@@ -150,14 +150,12 @@ endif;
  */
 function thevoyager_scripts() {
 	wp_enqueue_style( 'thevoyager-style', get_stylesheet_uri() );
-
-	wp_enqueue_style( 'gumby', get_template_directory_uri() . '/css/gumby.css', array(), '20151215', false );
 	
-	wp_enqueue_style( 'tailwind-styles', get_template_directory_uri() . '/dist/styles.css', array(), '20151215', false );
+	wp_enqueue_style( 'thevoyager-styles', get_template_directory_uri() . '/dist/styles.css', array(), '20151215', false );
 
 	wp_enqueue_style( 'thevoyager-fonts', thevoyager_fonts_url(), array(), null);  
 	
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array('jquery'), '20151215', true );
+	wp_enqueue_script( 'thevoyager-main', get_template_directory_uri() . '/js/main.js', array(), '20151215', true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -254,3 +252,144 @@ add_filter( 'nav_menu_submenu_css_class', function($classes, $args, $depth){
 	return $classes;
 
 }, 10, 3 );
+
+
+add_filter( 'comment_form_defaults', function($defaults){
+	$html5 = null;
+	$required_indicator = ' ' . wp_required_field_indicator();
+	$required_attribute = ( $html5 ? ' required' : ' required="required"' );
+
+	$defaults['comment_field'] = sprintf(
+		'<p class="comment-form-comment flex flex-col my-5 w-full md:w-3/4">%s %s</p>',
+		sprintf(
+			'<label for="comment" class="mb-3">%s%s</label>',
+			_x( 'Comment', 'noun' ),
+			$required_indicator
+		),
+		'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
+	);
+
+	return $defaults;
+});
+
+add_filter( 'comment_form_default_fields', function($fields){
+	$commenter     = wp_get_current_commenter();
+	$args = wp_parse_args( [] );
+	if ( ! isset( $args['format'] ) ) {
+		$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
+	}
+
+	$req   = get_option( 'require_name_email' );
+	$html5 = 'html5' === $args['format'];
+
+	// Define attributes in HTML5 or XHTML syntax.
+	$required_attribute = ( $html5 ? ' required' : ' required="required"' );
+	$checked_attribute  = ( $html5 ? ' checked' : ' checked="checked"' );
+
+	// Identify required fields visually and create a message about the indicator.
+	$required_indicator = ' ' . wp_required_field_indicator();
+	$required_text      = ' ' . wp_required_field_message();
+
+	$fields = array(
+		'author' => sprintf(
+			'<p class="comment-form-author flex flex-col w-1/4 my-5">%s %s</p>',
+			sprintf(
+				'<label for="author">%s%s</label>',
+				__( 'Name' ),
+				( $req ? $required_indicator : '' )
+			),
+			sprintf(
+				'<input id="author" name="author" type="text" value="%s" size="30" maxlength="245" autocomplete="name"%s />',
+				esc_attr( $commenter['comment_author'] ),
+				( $req ? $required_attribute : '' )
+			)
+		),
+		'email'  => sprintf(
+			'<p class="comment-form-email flex flex-col w-1/4 my-5">%s %s</p>',
+			sprintf(
+				'<label for="email">%s%s</label>',
+				__( 'Email' ),
+				( $req ? $required_indicator : '' )
+			),
+			sprintf(
+				'<input id="email" name="email" %s value="%s" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email"%s />',
+				( $html5 ? 'type="email"' : 'type="text"' ),
+				esc_attr( $commenter['comment_author_email'] ),
+				( $req ? $required_attribute : '' )
+			)
+		),
+		'url'    => sprintf(
+			'<p class="comment-form-url flex flex-col w-1/4 my-5">%s %s</p>',
+			sprintf(
+				'<label for="url">%s</label>',
+				__( 'Website' )
+			),
+			sprintf(
+				'<input id="url" name="url" %s value="%s" size="30" maxlength="200" autocomplete="url" />',
+				( $html5 ? 'type="url"' : 'type="text"' ),
+				esc_attr( $commenter['comment_author_url'] )
+			)
+		),
+	);
+
+	return $fields;
+});
+
+
+add_filter( 'comment_class', function($classes, $css_class, $comment_id, $comment, $post){
+	$classes[] = 'mt-8';
+	return $classes;
+},10, 5);
+
+
+function voyager_comment($comment, $args, $depth) {
+    if ( 'div' === $args['style'] ) {
+        $tag       = 'div';
+        $add_below = 'comment';
+    } else {
+        $tag       = 'li';
+        $add_below = 'div-comment';
+    }?>
+    <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
+    if ( 'div' != $args['style'] ) { ?>
+        <div id="div-comment-<?php comment_ID() ?>" class="comment-body grid grid-flow-row auto-rows-auto gap-2"><?php
+    } ?>
+        <div class="comment-author vcard flex items-center gap-1"><?php 
+            if ( $args['avatar_size'] != 0 ) {
+                echo get_avatar( $comment, $args['avatar_size'] ); 
+            } 
+            printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+        </div><?php 
+        if ( $comment->comment_approved == '0' ) { ?>
+            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
+        } ?>
+        <div class="comment-meta commentmetadata">
+            <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php
+                /* translators: 1: date, 2: time */
+                printf( 
+                    __('%1$s at %2$s'), 
+                    get_comment_date(),  
+                    get_comment_time() 
+                ); ?>
+            </a><?php 
+            edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+        </div>
+
+        <?php comment_text(); ?>
+
+        <div class="reply"><?php 
+                comment_reply_link( 
+                    array_merge( 
+                        $args, 
+                        array( 
+                            'add_below' => $add_below, 
+                            'depth'     => $depth, 
+                            'max_depth' => $args['max_depth'] 
+                        ) 
+                    ) 
+                ); ?>
+        </div><?php 
+    if ( 'div' != $args['style'] ) : ?>
+        </div><?php 
+    endif;
+}

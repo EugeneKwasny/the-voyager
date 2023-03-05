@@ -9,9 +9,9 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content row">
+<div id="content" class="site-content">
 
-	<div id="primary" class="content-area twelve columns">
+	<div id="primary" class="content-area">
 		
 		<main id="main" class="site-main" role="main">
 
@@ -20,7 +20,7 @@ get_header(); ?>
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'the-voyager' ); ?></h1>
 				</header><!-- .page-header -->
 
-				<div class="page-content">
+				<div class="page-content flex flex-col gap-4">
 					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'the-voyager' ); ?></p>
 
 					<?php
@@ -29,7 +29,7 @@ get_header(); ?>
 						the_widget( 'WP_Widget_Recent_Posts' );
 
 						// Only show the widget if site has multiple categories.
-						if ( voyager_categorized_blog() ) :
+						//if ( voyager_categorized_blog() ) :
 					?>
 
 					<div class="widget widget_categories">
@@ -48,7 +48,7 @@ get_header(); ?>
 					</div><!-- .widget -->
 
 					<?php
-						endif;
+						//endif;
 
 						/* translators: %1$s: smiley */
 						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'the-voyager' ), convert_smilies( ':)' ) ) . '</p>';
