@@ -157,27 +157,13 @@ function thevoyager_scripts() {
 
 	wp_enqueue_style( 'thevoyager-fonts', thevoyager_fonts_url(), array(), null);  
 	
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr.js', array('jquery' ), '20151215', false );
-
-	wp_enqueue_script( 'gumby', get_template_directory_uri() . '/js/libs/gumby.js', array(), '20151215', true );
-	
-	wp_enqueue_script( 'gumby-fixed', get_template_directory_uri() . '/js/libs/ui/gumby.fixed.js', array(), '20151215', true );
-	wp_enqueue_script( 'gumby-toggleswitch', get_template_directory_uri() . '/js/libs/ui/gumby.toggleswitch.js', array(), '20151215', true );
-	wp_enqueue_script( 'gumby-navbar', get_template_directory_uri() . '/js/libs/ui/gumby.navbar.js', array(), '20151215', true );
-	wp_enqueue_script( 'gumby-init', get_template_directory_uri() . '/js/libs/gumby.init.js', array('jquery'), '20151215', true );
-	
-	wp_enqueue_script( 'gumby-main', get_template_directory_uri() . '/js/main.js', array('jquery'), '20151215', true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array('jquery'), '20151215', true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'thevoyager_scripts' );
-
-/**
- * Implement the Custom Walker.
- */
-require get_template_directory() . '/inc/custom-menu-walker.php';
 
 /**
  * Implement the Custom Header feature.
@@ -203,3 +189,68 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+add_filter( 'wp_nav_menu_objects', function(array $sorted_menu_items, stdClass $args ){
+	if($args->theme_location !== 'primary-left'){
+		return  $sorted_menu_items;
+	}
+
+	$processedMenuItems = array_map(function($menuItem){
+		// var_dump($menuItem);
+		$menuItem->classes[] = 'block';
+		$menuItem->classes[] = 'pb-0';
+		$menuItem->classes[] =  'relative';
+		$menuItem->classes[] =  'lg:mx-0'; 
+
+		if($menuItem->post_parent === 0){
+			$menuItem->classes[] = 'lg:inline-flex';
+			$menuItem->classes[] = 'lg:mx-6';
+			$menuItem->classes[] =  'lg:ml-0'; 
+
+		}
+		return $menuItem;
+
+	}, $sorted_menu_items);
+
+	return $processedMenuItems;
+}, 10, 2);
+
+
+add_filter( 'nav_menu_link_attributes', function($atts, $menu_item, $args, $depth){
+	if($args->theme_location !== 'primary-left'){
+		return  $atts;
+	}
+	$menuItemHasChild = null;
+	$result = array_search('menu-item-has-children', $menu_item->classes);
+	if($result){
+		$menuItemHasChild = 'menu-item-has-submenu';
+	}
+	$atts['class'] =  $menuItemHasChild . ' flex justify-between px-[30px] py-3.5 hover:bg-bg-4 hover:text-color-textDark lg:hover:text-bg-2 lg:hover:bg-transparent lg:border-t-[2px] lg:border-bg-2/0  lg:inline-flex';
+	
+	if($atts['aria-current'] === 'page'){
+		$atts['class'] .= ' text-bg-2 border-bg-2/100';
+	}
+
+	if($depth !== 0){
+		$atts['class'] .= ' lg:w-full px-[30px] lg:hover:border-bg-2/0';
+	}
+
+	if($depth === 0){
+		$atts['class'] .= ' lg:hover:border-bg-2/100';
+	}
+	return $atts;
+}, 10, 4);
+
+
+add_filter( 'nav_menu_submenu_css_class', function($classes, $args, $depth){
+	if( $args->theme_location === 'primary-left' ){
+		$classes[] = 'hidden lg:absolute lg:top-[54px] flex-col lg:bg-bg-1 lg:w-72';
+	}
+
+	if($depth !== 0){
+		$classes[] = 'lg:pl-4';
+	}
+	return $classes;
+
+}, 10, 3 );
