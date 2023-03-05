@@ -263,7 +263,7 @@ add_filter( 'comment_form_defaults', function($defaults){
 		'<p class="comment-form-comment flex flex-col my-5 w-full md:w-3/4">%s %s</p>',
 		sprintf(
 			'<label for="comment" class="mb-3">%s%s</label>',
-			_x( 'Comment', 'noun' ),
+			_x( 'Comment', 'noun', 'the-voyager' ),
 			$required_indicator
 		),
 		'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
@@ -295,7 +295,7 @@ add_filter( 'comment_form_default_fields', function($fields){
 			'<p class="comment-form-author flex flex-col w-1/4 my-5">%s %s</p>',
 			sprintf(
 				'<label for="author">%s%s</label>',
-				__( 'Name' ),
+				__( 'Name', 'the-voyager' ),
 				( $req ? $required_indicator : '' )
 			),
 			sprintf(
@@ -308,7 +308,7 @@ add_filter( 'comment_form_default_fields', function($fields){
 			'<p class="comment-form-email flex flex-col w-1/4 my-5">%s %s</p>',
 			sprintf(
 				'<label for="email">%s%s</label>',
-				__( 'Email' ),
+				__( 'Email', 'the-voyager' ),
 				( $req ? $required_indicator : '' )
 			),
 			sprintf(
@@ -322,7 +322,7 @@ add_filter( 'comment_form_default_fields', function($fields){
 			'<p class="comment-form-url flex flex-col w-1/4 my-5">%s %s</p>',
 			sprintf(
 				'<label for="url">%s</label>',
-				__( 'Website' )
+				__( 'Website', 'the-voyager' )
 			),
 			sprintf(
 				'<input id="url" name="url" %s value="%s" size="30" maxlength="200" autocomplete="url" />',
@@ -358,21 +358,21 @@ function voyager_comment($comment, $args, $depth) {
             if ( $args['avatar_size'] != 0 ) {
                 echo get_avatar( $comment, $args['avatar_size'] ); 
             } 
-            printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+            printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>', 'the-voyager'), get_comment_author_link() ); ?>
         </div><?php 
         if ( $comment->comment_approved == '0' ) { ?>
-            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
+            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'the-voyager' ); ?></em><br/><?php 
         } ?>
         <div class="comment-meta commentmetadata">
             <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php
                 /* translators: 1: date, 2: time */
                 printf( 
-                    __('%1$s at %2$s'), 
+                    __('%1$s at %2$s', 'the-voyager'), 
                     get_comment_date(),  
                     get_comment_time() 
                 ); ?>
             </a><?php 
-            edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+            edit_comment_link( __( '(Edit)', 'the-voyager' ), '  ', '' ); ?>
         </div>
 
         <?php comment_text(); ?>
