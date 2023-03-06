@@ -19,26 +19,9 @@ Underscores WordPress Theme is distributed under the terms of the GNU GPL [GPLv2
 
 The Voyager WordPress Theme bundles the following third-party resources:
 
-Entypo icon font, Copyright 2016 Daniel Bruce
-Entypo licensed under SIL Open Font License (OFL) (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
-Source: http://www.entypo.com/
+Tailwind CSS, Copyright (c) Tailwind Labs, Inc.
+licensed under MIT License. (https://github.com/tailwindlabs/tailwindcss/blob/master/LICENSE)  
+Source: https://tailwindcss.com/
 
-Gumby Framework, Copyright 2016 Digital Surgeons
-Gumby Framework licensed under MIT Open Source License. (http://opensource.org/licenses/MIT)  
-Source: http://gumbyframework.com/
 
-Sass, Copyright 2006–2016 Hampton Catlin, Natalie Weizenbaum, Chris Eppstein,
-Sass licensed under MIT Open Source License (http://sass-lang.com/documentation/file.MIT-LICENSE.html)
-Source: http://sass-lang.com/
 
-Compass, Copyright (c) 2008-2014 Christopher M. Eppstein
-Compass licensed under MIT Open Source License https://github.com/Compass/compass/blob/stable/LICENSE.markdown
-Source: https://github.com/chriseppstein/compass/
-
-Modular Scale, Copyright (c) 2008-2016 Christopher M. Eppstein
-Modular Scale licensed under MIT Open Source License. (http://opensource.org/licenses/MIT) 
-Source: https://github.com/Team-Sass/modular-scale/
-
-Modernizr, Copyright (c) 2016 Faruk, Paul, Alex, Ryan, Patrick, Stu, and Richard
-Modernizr licensed under MIT Open Source License. (http://opensource.org/licenses/MIT)
-Source: http://modernizr.com/
