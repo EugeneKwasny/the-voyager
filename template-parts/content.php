@@ -18,7 +18,7 @@
 				if ( has_post_thumbnail() ) {
 					the_post_thumbnail();
 				} 
-				the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+				the_title( '<h3 class="entry-title text-3xl text-color-textDark"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			}
 
 		if ( 'post' === get_post_type() ) : ?>
@@ -29,7 +29,7 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content mt-4">
+	<div class="entry-content mt-4 text-color-textDark">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

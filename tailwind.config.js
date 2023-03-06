@@ -18,6 +18,10 @@ module.exports = {
           textLight: '#626974'
         }
       },
+      fontFamily:{
+        'sans': 'Jost, Helvetica, Arial, sans-serif'
+      }
+
     },
   },
   plugins: [

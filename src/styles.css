@@ -46,6 +46,9 @@
     figure {
         @apply mb-4;
     }
+    /* a{
+        @apply text-color-textDark;
+    } */
     a:hover{
         @apply text-blue-600;
     }

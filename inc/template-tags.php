@@ -34,7 +34,7 @@ function thevoyager_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="posted-on text-color-textLight">' . $posted_on . '</span><span class="byline text-color-textLight"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -49,18 +49,18 @@ function thevoyager_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'the-voyager' ) );
 		if ( $categories_list && thevoyager_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'the-voyager' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links text-color-textLight">' . esc_html__( 'Posted in %1$s', 'the-voyager' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'the-voyager' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'the-voyager' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links text-color-textLight">' . esc_html__( 'Tagged %1$s', 'the-voyager' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
+		echo '<span class="comments-link text-color-textLight">';
 		/* translators: %s: post title */
 		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'the-voyager' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
